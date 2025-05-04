@@ -13,6 +13,8 @@ spec:
       labels:
         app: postgresql
     spec:
+      nodeSelector:
+        kubernetes.io/hostname: heal23-server
       containers:
         - name: postgres
           image: postgres:15
