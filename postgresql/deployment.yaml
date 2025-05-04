@@ -24,7 +24,7 @@ spec:
             - name: POSTGRES_USER
               value: heal23
             - name: POSTGRES_PASSWORD
-              value: 16032022
+              value: "16032022"
           volumeMounts:
             - name: postgres-storage
               mountPath: /var/lib/postgresql/data
