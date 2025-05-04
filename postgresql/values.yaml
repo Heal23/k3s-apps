@@ -7,3 +7,6 @@ primary:
   persistence:
     enabled: true
     size: 10Gi
+
+nodeSelector:
+  kubernetes.io/hostname: heal23-server
