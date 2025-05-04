@@ -6,16 +6,13 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://charts.bitnami.com/bitnami
-    chart: postgresql
-    targetRevision: 12.6.2  # or "latest"
-    helm:
-      valueFiles:
-        - values.yaml
+    repoURL: https://github.com/heal23/k3s-apps
+    targetRevision: HEAD
+    path: postgresql
   destination:
     server: https://kubernetes.default.svc
     namespace: postgresql
   syncPolicy:
     automated:
-      prune: true
       selfHeal: true
+      prune: true
