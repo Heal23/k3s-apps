@@ -1,0 +1,9 @@
+auth:
+  username: heal23
+  password: 16032022
+  database: mydb
+
+primary:
+  persistence:
+    enabled: true
+    size: 8Gi
