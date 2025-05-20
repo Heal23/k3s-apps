@@ -1,0 +1,22 @@
+auth:
+  adminUser: admin
+  adminPassword: admin123  # Change later or use K8s secret
+
+postgresql:
+  enabled: false  # Use external DB
+
+externalDatabase:
+  host: postgresql.postgresql.svc.cluster.local
+  port: 5432
+  database: keycloak
+  user: keycloak_user
+  password: SuperSecureKeycloak123  # Match the password you set
+
+ingress:
+  enabled: true
+  hostname: auth.heal23.ch  # Or local if testing
+  ingressClassName: nginx
+  tls: false
+
+service:
+  type: ClusterIP
