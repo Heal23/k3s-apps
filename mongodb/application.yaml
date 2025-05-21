@@ -6,9 +6,17 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://your.git.repo.url
-    targetRevision: HEAD
-    path: mongodb
+    repoURL: https://charts.bitnami.com/bitnami
+    chart: mongodb
+    targetRevision: 13.20.1  # or "latest"
+    helm:
+      values: |
+        architecture: standalone
+        auth:
+          enabled: false  # For dev only
+        persistence:
+          enabled: true
+          size: 5Gi
   destination:
     server: https://kubernetes.default.svc
     namespace: mongo
