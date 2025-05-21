@@ -17,25 +17,15 @@ spec:
       containers:
         - name: vault
           image: hashicorp/vault:1.15.2
-          command: ["vault", "server"]
+          command: ["vault", "server", "-config=/vault/config/local.json"]
           ports:
             - containerPort: 8200
               name: vault
-          env:
-            - name: VAULT_LOCAL_CONFIG
-              value: |
-                ui = true
-                listener "tcp" {
-                  address = "0.0.0.0:8200"
-                  tls_disable = 1
-                }
-                storage "file" {
-                  path = "/vault/data"
-                }
-                disable_mlock = true
           volumeMounts:
             - name: vault-storage
               mountPath: /vault/data
+            - name: vault-config
+              mountPath: /vault/config
           securityContext:
             capabilities:
               add: ["IPC_LOCK"]
@@ -43,3 +33,6 @@ spec:
         - name: vault-storage
           persistentVolumeClaim:
             claimName: vault-pvc
+        - name: vault-config
+          configMap:
+            name: vault-config
