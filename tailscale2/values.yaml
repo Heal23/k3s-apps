@@ -1,6 +1,0 @@
-oauth:
-  clientId: "kWCiziRL5911CNTRL"
-  clientSecret: "tskey-client-kWCiziRL5911CNTRL-myFw9eVKRA9FkNypaswCA9FhhdoS8Amc"
-
-operator:
-  logLevel: debug

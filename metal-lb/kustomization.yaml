@@ -1,0 +1,6 @@
+# metal-lb/kustomization.yaml
+resources:
+  - namespace.yaml
+  - metallb-native.yaml
+  - ipaddresspool.yaml
+  - l2advertisement.yaml
