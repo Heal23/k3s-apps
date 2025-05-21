@@ -1,23 +1,24 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: vault-injector
+  name: tailscale
   namespace: argocd
 spec:
   project: default
   source:
-    repoURL: https://helm.releases.hashicorp.com
-    chart: vault
-    targetRevision: 0.27.0  # adjust as needed
+    repoURL: https://pkgs.tailscale.com/helmcharts
+    targetRevision: HEAD
+    chart: tailscale-operator
     helm:
       values: |
-        injector:
-          enabled: true
-        server:
-          enabled: false
+        oauth:
+          clientId: ""
+          clientSecret: ""
+        operator:
+          logLevel: debug
   destination:
     server: https://kubernetes.default.svc
-    namespace: vault
+    namespace: tailscale
   syncPolicy:
     automated:
       selfHeal: true
