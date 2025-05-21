@@ -17,6 +17,7 @@ spec:
       containers:
         - name: vault
           image: hashicorp/vault:1.15.2
+          command: ["vault", "server"]
           ports:
             - containerPort: 8200
               name: vault
