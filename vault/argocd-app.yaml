@@ -9,9 +9,6 @@ spec:
     repoURL: https://github.com/heal23/k3s-apps
     targetRevision: HEAD
     path: k3s-apps/vault
-    helm:
-      valueFiles:
-        - values.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: vault
