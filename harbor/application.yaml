@@ -1,0 +1,35 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: harbor
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://charts.bitnami.com/bitnami
+    chart: harbor
+    targetRevision: 13.0.7  # or latest stable version
+    helm:
+      values: |
+        externalURL: https://harbor.heal23.ch
+        harborAdminPassword: "16032022"
+        expose:
+          ingress:
+            enabled: true
+            hosts:
+              core: harbor.heal23.ch
+              notary: notary.harbor.heal23.ch
+            tls:
+              - secretName: harbor-tls
+                hosts:
+                  - harbor.heal23.ch
+        persistence:
+          enabled: true
+          storageClass: "your-storage-class"  # adjust for your cluster
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: harbor
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
