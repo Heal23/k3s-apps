@@ -9,6 +9,11 @@ spec:
     repoURL: https://github.com/heal23/k3s-apps
     targetRevision: HEAD
     path: k3s-apps/mongodb
+    helm:
+      chart: mongodb
+      repoURL: https://charts.bitnami.com/bitnami
+      valueFiles:
+        - values.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: mongodb

@@ -1,0 +1,19 @@
+auth:
+  enabled: true
+  rootUser: root
+  rootPassword: rootpassword
+
+architecture: standalone
+replicaSet:
+  enabled: false
+
+service:
+  type: ClusterIP
+
+persistence:
+  enabled: true
+  size: 5Gi
+  storageClass: ""
+
+metrics:
+  enabled: false

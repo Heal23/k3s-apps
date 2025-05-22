@@ -17,8 +17,8 @@ spec:
               service:
                 name: mongo-express
                 port:
-                  number: 8081
+                  number: 80
   tls:
     - hosts:
         - mongo.heal23.ch
-      secretName: mongo-tls
+      secretName: mongo-express-tls
