@@ -19,9 +19,6 @@ spec:
             hosts:
               core: harbor.heal23.ch
               notary: notary.harbor.heal23.ch
-            annotations:
-              kubernetes.io/ingress.class: traefik
-              traefik.ingress.kubernetes.io/router.entrypoints: websecure
             tls:
               - secretName: harbor-tls
                 hosts:
