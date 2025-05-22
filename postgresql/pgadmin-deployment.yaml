@@ -22,6 +22,12 @@ spec:
             - containerPort: 80
           env:
             - name: PGADMIN_DEFAULT_EMAIL
-              value: "elalihsaine@gmail.com"
+              valueFrom:
+                secretKeyRef:
+                  name: postgresql-secrets
+                  key: PGADMIN_DEFAULT_EMAIL
             - name: PGADMIN_DEFAULT_PASSWORD
-              value: "16032022"
+              valueFrom:
+                secretKeyRef:
+                  name: postgresql-secrets
+                  key: PGADMIN_DEFAULT_PASSWORD

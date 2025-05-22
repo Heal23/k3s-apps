@@ -24,9 +24,15 @@ spec:
             - name: POSTGRES_DB
               value: mydb
             - name: POSTGRES_USER
-              value: heal23
+              valueFrom:
+                secretKeyRef:
+                  name: postgresql-secrets
+                  key: POSTGRES_USER
             - name: POSTGRES_PASSWORD
-              value: "16032022"
+              valueFrom:
+                secretKeyRef:
+                  name: postgresql-secrets
+                  key: POSTGRES_PASSWORD
           volumeMounts:
             - name: postgres-storage
               mountPath: /var/lib/postgresql/data
