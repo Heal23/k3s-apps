@@ -10,8 +10,6 @@ replicaSet:
 service:
   type: ClusterIP
 
-fullnameOverride: mongodb
-
 persistence:
   enabled: true
   size: 5Gi

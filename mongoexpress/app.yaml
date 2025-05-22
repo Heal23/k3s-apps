@@ -1,19 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: mongodb
+  name: mongo-express
   namespace: argocd
 spec:
   project: default
   source:
     repoURL: https://github.com/heal23/k3s-apps
     targetRevision: HEAD
-    path: k3s-apps/mongodb
-    helm:
-      chart: mongodb
-      repoURL: https://charts.bitnami.com/bitnami
-      valueFiles:
-        - values.yaml
+    path: mongo-express
   destination:
     server: https://kubernetes.default.svc
     namespace: mongodb
