@@ -4,7 +4,7 @@ metadata:
   name: mongodb
   namespace: mongodb
 spec:
-type: NodePort
+  type: NodePort
   selector:
     app: mongodb
   ports:
