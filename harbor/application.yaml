@@ -6,9 +6,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://charts.bitnami.com/bitnami
+    repoURL: https://helm.goharbor.io
     chart: harbor
-    targetRevision: 13.0.7  # or latest stable version
+    targetRevision: 2.7.0
     helm:
       values: |
         externalURL: https://harbor.heal23.ch
@@ -25,7 +25,7 @@ spec:
                   - harbor.heal23.ch
         persistence:
           enabled: true
-          storageClass: "your-storage-class"  # adjust for your cluster
+          storageClass: "your-storage-class"
   destination:
     server: https://kubernetes.default.svc
     namespace: harbor
