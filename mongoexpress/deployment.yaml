@@ -20,8 +20,8 @@ spec:
             - containerPort: 8081
           env:
             - name: ME_CONFIG_MONGODB_ADMINUSERNAME
-              value: heal
+              value: root
             - name: ME_CONFIG_MONGODB_ADMINPASSWORD
-              value: adminpassword
+              value: rootpassword
             - name: ME_CONFIG_MONGODB_SERVER
               value: mongodb
