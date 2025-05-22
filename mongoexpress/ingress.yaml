@@ -18,7 +18,3 @@ spec:
                 name: mongo-express
                 port:
                   number: 80
-  tls:
-    - hosts:
-        - mongo.heal23.ch
-      secretName: mongo-express-tls
