@@ -19,6 +19,9 @@ spec:
             hosts:
               core: harbor.heal23.ch
               notary: notary.harbor.heal23.ch
+            annotations:
+              kubernetes.io/ingress.class: traefik
+              traefik.ingress.kubernetes.io/router.entrypoints: websecure
             tls:
               - secretName: harbor-tls
                 hosts:
@@ -26,6 +29,21 @@ spec:
         persistence:
           enabled: true
           storageClass: "your-storage-class"
+          persistentVolumeClaim:
+            registry:
+              size: 20Gi
+            chartmuseum:
+              size: 10Gi
+            jobservice:
+              size: 5Gi
+            database:
+              size: 10Gi
+            redis:
+              size: 5Gi
+            trivy:
+              size: 10Gi
+        notary:
+          enabled: false
   destination:
     server: https://kubernetes.default.svc
     namespace: harbor
