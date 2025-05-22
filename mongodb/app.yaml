@@ -6,12 +6,10 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/heal23/k3s-apps
-    targetRevision: HEAD
-    path: mongodb
+    repoURL: https://charts.bitnami.com/bitnami
+    targetRevision: 14.4.4  # Replace with latest or specific version
+    chart: mongodb
     helm:
-      chart: mongodb
-      repoURL: https://charts.bitnami.com/bitnami
       valueFiles:
         - values.yaml
   destination:
