@@ -4,8 +4,10 @@ metadata:
   name: mongodb
   namespace: mongodb
 spec:
+type: NodePort
   selector:
     app: mongodb
   ports:
     - port: 27017
       targetPort: 27017
+      nodePort: 32000
