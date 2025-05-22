@@ -12,7 +12,11 @@ spec:
     helm:
       values: |
         externalURL: https://harbor.heal23.ch
-        harborAdminPassword: "16032022"
+        harborAdminPassword: 
+          valueFrom:
+            secretKeyRef:
+              name: harbor-admin-secret
+              key: harborAdminPassword
         expose:
           ingress:
             enabled: true
