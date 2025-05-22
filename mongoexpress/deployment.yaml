@@ -25,3 +25,6 @@ spec:
               value: rootpassword
             - name: ME_CONFIG_MONGODB_SERVER
               value: mongodb
+            - name: ME_CONFIG_MONGODB_AUTH_DATABASE
+              value: admin
+
