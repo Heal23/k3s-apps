@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://helm.goharbor.io
     chart: harbor
-    targetRevision: 2.7.0
+    targetRevision: 1.17.0
     helm:
       values: |
         externalURL: https://harbor.heal23.ch
