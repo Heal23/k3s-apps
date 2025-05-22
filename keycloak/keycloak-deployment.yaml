@@ -21,13 +21,19 @@ spec:
           args: ["start-dev"]
           env:
             - name: KEYCLOAK_ADMIN
-              value: "admin"
+              valueFrom:
+                secretKeyRef:
+                  name: keycloak-admin-secret
+                  key: KEYCLOAK_ADMIN
             - name: KEYCLOAK_ADMIN_PASSWORD
-              value: "admin123"
+              valueFrom:
+                secretKeyRef:
+                  name: keycloak-admin-secret
+                  key: KEYCLOAK_ADMIN_PASSWORD
             - name: KC_DB
               value: postgres
             - name: KC_DB_URL
-              value: "jdbc:postgresql://postgresql.postgresql.svc.cluster.local:5432/keycloack"
+              value: "jdbc:postgresql://postgresql.postgresql.svc.cluster.local:5432/keycloak"
             - name: KC_DB_USERNAME
               valueFrom:
                 secretKeyRef:
