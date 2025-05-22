@@ -7,11 +7,24 @@ spec:
   project: default
   source:
     repoURL: https://charts.bitnami.com/bitnami
-    targetRevision: 14.4.4  # Replace with latest or specific version
+    targetRevision: 14.4.4  # Or latest supported version
     chart: mongodb
     helm:
-      valueFiles:
-        - values.yaml
+      values: |
+        auth:
+          enabled: true
+          rootUser: root
+          rootPassword: rootpassword
+        architecture: standalone
+        replicaSet:
+          enabled: false
+        service:
+          type: ClusterIP
+        persistence:
+          enabled: true
+          size: 5Gi
+        metrics:
+          enabled: false
   destination:
     server: https://kubernetes.default.svc
     namespace: mongodb
