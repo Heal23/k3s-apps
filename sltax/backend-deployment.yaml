@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sltax-backend
+  namespace: sltax
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sltax-backend
+  template:
+    metadata:
+      labels:
+        app: sltax-backend
+    spec:
+      containers:
+        - name: backend
+          image: IMAGE_TAG
+          ports:
+            - containerPort: 8000
+          envFrom:
+            - secretRef:
+                name: sltax-backend-env
