@@ -17,7 +17,7 @@ spec:
                 name: sltax-frontend
                 port:
                   number: 80
-    - host: api.heal23.ch
+    - host: sltaxapi.heal23.ch
       http:
         paths:
           - path: /
