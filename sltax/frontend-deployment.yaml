@@ -16,6 +16,7 @@ spec:
       containers:
         - name: frontend
           image: ghcr.io/heal23/sltax-frontend:latest
+          imagePullPolicy: Always  
           ports:
             - containerPort: 3000
           env:
