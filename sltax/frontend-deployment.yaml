@@ -21,3 +21,5 @@ spec:
           env:
             - name: NODE_ENV
               value: production
+      imagePullSecrets:
+        - name: ghcr-creds
